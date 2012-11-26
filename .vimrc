@@ -26,6 +26,8 @@ if exists("&undodir")
 	set undodir=~/.vim/undo
 endif
 
+colorscheme molokai
+
 " Respect modeline in files
 set modeline
 set modelines=4
