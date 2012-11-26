@@ -1,3 +1,8 @@
+# CD to a directory and ls the contents
+function cdl() {
+	cd $1 && l
+}
+
 # Create a new directory and enter it
 function mkd() {
 	mkdir -p "$@" && cd "$@"
