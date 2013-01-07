@@ -45,6 +45,9 @@ alias sudo='sudo '
 # Use colordiff if available
 command -v colourdiff > /dev/null && alias diff="colourdiff"
 
+# Exclude .svn folders from grep
+alias grep='grep --exclude-dir=".svn"'
+
 # Gzip-enabled `curl`
 alias gurl="curl --compressed"
 
