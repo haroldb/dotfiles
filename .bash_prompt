@@ -117,12 +117,19 @@ function prompt_vcs() {
 
 if [[ $EUID -eq 0 ]]; then
 	PS1_USER="\[${BOLD}${RED}\]\u\[${RESET}\]"
+elif [[ $USER != $(logname) ]]; then
+    PS1_USER="\[${BOLD}${YELLOW}\]\u\[${RESET}\]"
 else
 	PS1_USER="\[${BOLD}${GREEN}\]\u\[${RESET}\]"
 fi
 
-PS1_HOST="\[${BOLD}${CYAN}\]\h\[${RESET}\]"
-PS1_PATH="\[${BOLD}${BLUE}\]\w\[${RESET}\]"
-PS1_PROMPT="\n\$ "
+if [[ -n "$SSH_CLIENT" ]]; then
+    PS1_HOST="\[${BOLD}${CYAN}\]\H\[${RESET}\]"
+else
+    PS1_HOST="\[${BOLD}${MAGENTA}\]\h\[${RESET}\]"
+fi
 
-PS1="${PS1_USER} at ${PS1_HOST} in ${PS1_PATH}\$(prompt_vcs)${PS1_PROMPT}"
+PS1_PATH="\[${BOLD}${BLUE}\]\w\[${RESET}\]"
+PS1_PROMPT="\n\\$ "
+
+PS1="${PS1_USER} at ${PS1_HOST} in ${PS1_PATH}${PS1_PROMPT}"
