@@ -1,6 +1,6 @@
 #!/bin/bash
 cd "$(dirname "${BASH_SOURCE}")"
-git pull
+git pull origin master
 function doIt() {
     if [[ -n $1 ]]; then
         rsync --exclude ".git/" --exclude ".gitignore" --exclude "init/" --exclude ".DS_Store" --exclude "sync.sh" --exclude "README.md" -av . $1:~
