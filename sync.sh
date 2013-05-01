@@ -3,9 +3,9 @@ cd "$(dirname "${BASH_SOURCE}")"
 git pull origin master
 function doIt() {
     if [[ -n $1 ]]; then
-        rsync --exclude ".git/" --exclude ".gitignore" --exclude "init/" --exclude ".DS_Store" --exclude "sync.sh" --exclude "README.md" -av . $1:~
+        rsync --exclude ".git/" --exclude ".gitignore" --exclude "init/" --exclude ".DS_Store" --exclude "sync.sh" --exclude "README.md" -av --no-perms . $1:~
     else
-        rsync --exclude ".git/" --exclude ".gitignore" --exclude "init/" --exclude ".DS_Store" --exclude "sync.sh" --exclude "README.md" -av . ~
+        rsync --exclude ".git/" --exclude ".gitignore" --exclude "init/" --exclude ".DS_Store" --exclude "sync.sh" --exclude "README.md" -av --no-perms . ~
     fi
 }
 if [ "$1" == "--force" -o "$1" == "-f" ]; then
