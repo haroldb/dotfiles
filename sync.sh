@@ -7,6 +7,8 @@ function doIt() {
     else
         rsync --exclude ".git/" --exclude ".gitignore" --exclude "init/" --exclude ".DS_Store" --exclude "sync.sh" --exclude "README.md" --exclude "LICENSE-MIT.txt" -av --no-perms . ~
     fi
+
+    source ~/.bash_profile
 }
 if [ "$1" == "--force" -o "$1" == "-f" ]; then
 	doIt $2
@@ -18,4 +20,3 @@ else
 	fi
 fi
 unset doIt
-source ~/.bash_profile
