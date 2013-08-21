@@ -96,6 +96,18 @@ function codepoint() {
 	echo # newline
 }
 
+# Encode string to base 64
+function b64en() {
+	php -r "echo base64_encode('$@');"
+	echo # newline
+}
+
+# Decode string from base64
+function b64de() {
+	php -r "echo base64_decode('$@');"
+	echo # newline
+}
+
 # Add note to Notes.app (OS X 10.8)
 # Usage: `note 'foo'` or `echo 'foo' | note`
 function note() {
