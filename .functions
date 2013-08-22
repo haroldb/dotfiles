@@ -97,13 +97,13 @@ function codepoint() {
 }
 
 # Encode string to base 64
-function b64en() {
+function b64e() {
 	php -r "echo base64_encode('$@');"
 	echo # newline
 }
 
 # Decode string from base64
-function b64de() {
+function b64d() {
 	php -r "echo base64_decode('$@');"
 	echo # newline
 }
