@@ -16,117 +16,117 @@ CYAN=$(tput setaf 6)
 WHITE=$(tput setaf 7)
 
 function is_git_repo() {
-    git rev-parse --is-inside-work-tree &> /dev/null
+	git rev-parse --is-inside-work-tree &> /dev/null
 }
 
 function get_git_branch() {
-    local branch_name
+	local branch_name
 
-    # Get the short symbolic ref
-    branch_name=$(git symbolic-ref --quiet --short HEAD 2> /dev/null) ||
-    # If HEAD isn't a symbolic ref, get the short SHA
-    branch_name=$(git rev-parse --short HEAD 2> /dev/null) ||
-    # Otherwise, just give up
-    branch_name="(unknown)"
+	# Get the short symbolic ref
+	branch_name=$(git symbolic-ref --quiet --short HEAD 2> /dev/null) ||
+	# If HEAD isn't a symbolic ref, get the short SHA
+	branch_name=$(git rev-parse --short HEAD 2> /dev/null) ||
+	# Otherwise, just give up
+	branch_name="(unknown)"
 
-    echo $branch_name
+	echo $branch_name
 }
 
 # Git status information
 function prompt_git() {
-    local git_info git_state uc us ut st
+	local git_info git_state uc us ut st
 
-    if ! is_git_repo; then
-        return 1
-    fi
+	if ! is_git_repo; then
+		return 1
+	fi
 
-    git_info=$(get_git_branch)
+	git_info=$(get_git_branch)
 
-    # The following checks can print a character if a condition matches.
-    # By default, only a dirty branch will show a star.
-    # If you want more info in your prompt, just assign a character to it below.
-    # Keep in mind that the checks are not exclusive, all 4 could be true.
-    #
-    # Check for uncommitted changes in the index
-    if ! `git diff --quiet --ignore-submodules --cached`; then
-        uc="+" # Suggestion: "+"
-    fi
+	# The following checks can print a character if a condition matches.
+	# By default, only a dirty branch will show a star.
+	# If you want more info in your prompt, just assign a character to it below.
+	# Keep in mind that the checks are not exclusive, all 4 could be true.
+	#
+	# Check for uncommitted changes in the index
+	if ! `git diff --quiet --ignore-submodules --cached`; then
+		uc="+" # Suggestion: "+"
+	fi
 
-    # Check for unstaged changes
-    if ! `git diff-files --quiet --ignore-submodules --`; then
-        us="!" # Suggestion: "*"
-    fi
+	# Check for unstaged changes
+	if ! `git diff-files --quiet --ignore-submodules --`; then
+		us="!" # Suggestion: "*"
+	fi
 
-    # Check for untracked files
-    if [ -n "$(git ls-files --others --exclude-standard)" ]; then
-        ut="?" # Suggestion: "?"
-    fi
+	# Check for untracked files
+	if [ -n "$(git ls-files --others --exclude-standard)" ]; then
+		ut="?" # Suggestion: "?"
+	fi
 
-    # Check for stashed files
-    if `git rev-parse --verify refs/stash &>/dev/null`; then
-        st="$" # Suggestion: "$"
-    fi
+	# Check for stashed files
+	if `git rev-parse --verify refs/stash &>/dev/null`; then
+		st="$" # Suggestion: "$"
+	fi
 
-    # Now we combine all possible symbols to make the "state" string
-    # If you followed the suggestions and all cases match it would say: "+*?$"
-    git_state=$us$uc$ut$st
+	# Now we combine all possible symbols to make the "state" string
+	# If you followed the suggestions and all cases match it would say: "+*?$"
+	git_state=$us$uc$ut$st
 
-    if [[ $us ]]; then
-        git_info="${BOLD}${RED}$git_info${RESET}${RED}$git_state${RESET}"
-    elif [[ $uc ]]; then
-        git_info="${BOLD}${MAGENTA}$git_info${RESET}${MAGENTA}$git_state${RESET}"
-    elif [[ $ut ]]; then
-        git_info="${BOLD}${YELLOW}$git_info${RESET}${YELLOW}$git_state${RESET}"
-    elif [[ $st ]]; then
-        git_info="${BOLD}${CYAN}$git_info${RESET}${CYAN}$git_state${RESET}"
-    else
-        git_info="${BOLD}${GREEN}$git_info${RESET}"
-    fi
+	if [[ $us ]]; then
+		git_info="${BOLD}${RED}$git_info${RESET}${RED}$git_state${RESET}"
+	elif [[ $uc ]]; then
+		git_info="${BOLD}${MAGENTA}$git_info${RESET}${MAGENTA}$git_state${RESET}"
+	elif [[ $ut ]]; then
+		git_info="${BOLD}${YELLOW}$git_info${RESET}${YELLOW}$git_state${RESET}"
+	elif [[ $st ]]; then
+		git_info="${BOLD}${CYAN}$git_info${RESET}${CYAN}$git_state${RESET}"
+	else
+		git_info="${BOLD}${GREEN}$git_info${RESET}"
+	fi
 
-    printf " on ${git_info}"
+	printf " on ${git_info}"
 }
 
 function is_svn_repo() {
-    svn info &> /dev/null
+	svn info &> /dev/null
 }
 
 function get_svn_branch() {
-    local branch_name
+	local branch_name
 
-    branch_name=$(svn info 2> /dev/null | grep '^URL:' | egrep -o '(tags|branches)/[^/]+|trunk' | egrep -o '[^/]+$') ||
-    branch_name="(unknown)"
+	branch_name=$(svn info 2> /dev/null | grep '^URL:' | egrep -o '(tags|branches)/[^/]+|trunk' | egrep -o '[^/]+$') ||
+	branch_name="(unknown)"
 
-    echo $branch_name
+	echo $branch_name
 }
 
 function prompt_svn() {
-    local svn_info
+	local svn_info
 
-    if ! is_svn_repo; then
-        return 1
-    fi
+	if ! is_svn_repo; then
+		return 1
+	fi
 
-    svn_info=$(get_svn_branch)
+	svn_info=$(get_svn_branch)
 
-    printf " on ${svn_info}"
+	printf " on ${svn_info}"
 }
 
 function prompt_vcs() {
-    prompt_git || prompt_svn
+	prompt_git || prompt_svn
 }
 
 if [[ $EUID -eq 0 ]]; then
 	PS1_USER="\[${BOLD}${RED}\]\u\[${RESET}\]"
 elif [[ $USER != $(logname) ]]; then
-    PS1_USER="\[${BOLD}${YELLOW}\]\u\[${RESET}\]"
+	PS1_USER="\[${BOLD}${YELLOW}\]\u\[${RESET}\]"
 else
 	PS1_USER="\[${BOLD}${GREEN}\]\u\[${RESET}\]"
 fi
 
 if [[ -n "$SSH_CLIENT" ]]; then
-    PS1_HOST="\[${BOLD}${CYAN}\]\H\[${RESET}\]"
+	PS1_HOST="\[${BOLD}${CYAN}\]\H\[${RESET}\]"
 else
-    PS1_HOST="\[${BOLD}${MAGENTA}\]\h\[${RESET}\]"
+	PS1_HOST="\[${BOLD}${MAGENTA}\]\h\[${RESET}\]"
 fi
 
 PS1_PATH="\[${BOLD}${BLUE}\]\w\[${RESET}\]"

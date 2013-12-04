@@ -2,13 +2,13 @@
 cd "$(dirname "${BASH_SOURCE}")"
 git pull origin master
 function doIt() {
-    if [[ -n $1 ]]; then
-        rsync --exclude ".git/" --exclude ".gitignore" --exclude "init/" --exclude ".DS_Store" --exclude "sync.sh" --exclude "README.md" --exclude "LICENSE-MIT.txt" -av --no-perms . $1:~
-    else
-        rsync --exclude ".git/" --exclude ".gitignore" --exclude "init/" --exclude ".DS_Store" --exclude "sync.sh" --exclude "README.md" --exclude "LICENSE-MIT.txt" -av --no-perms . ~
-    fi
+	if [[ -n $1 ]]; then
+		rsync --exclude ".git/" --exclude ".gitignore" --exclude "init/" --exclude ".DS_Store" --exclude "sync.sh" --exclude "README.md" --exclude "LICENSE-MIT.txt" -av --no-perms . $1:~
+	else
+		rsync --exclude ".git/" --exclude ".gitignore" --exclude "init/" --exclude ".DS_Store" --exclude "sync.sh" --exclude "README.md" --exclude "LICENSE-MIT.txt" -av --no-perms . ~
+	fi
 
-    source ~/.bash_profile
+	source ~/.bash_profile
 }
 if [ "$1" == "--force" -o "$1" == "-f" ]; then
 	doIt $2
