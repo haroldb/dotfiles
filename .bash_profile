@@ -32,6 +32,9 @@ complete -W "NSGlobalDomain" defaults
 # Add `killall` tab completion for common apps
 complete -o "nospace" -W "Contacts Calendar Dock Finder Mail Safari iTunes SystemUIServer Terminal Twitter" killall
 
+# Autocomplete git commands
+[ -f ~/.git-completion.bash ] && source ~/.git-completion.bash
+
 # Autocomplete Grunt commands
 which grunt &> /dev/null && eval "$(grunt --completion=bash)"
 
