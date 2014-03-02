@@ -86,6 +86,34 @@ function prompt_git() {
 	printf " on ${git_info}"
 }
 
+function is_svn_repo() {
+	svn info &> /dev/null
+}
+
+function get_svn_branch() {
+	local branch_name
+	branch_name=$(svn info | sed -En 's/^Relative URL: \^(\/branches\/|\/tags\/|\/)(.*)$/\2/p') ||
+	branch_name='(unknown)'
+
+	echo $branch_name
+}
+
+function prompt_svn() {
+	local svn_info
+
+	if ! is_svn_repo; then
+		return 1
+	fi
+
+	svn_info=$(get_svn_branch)
+
+	printf " on ${BOLD}${svn_info}${RESET}"
+}
+
+function prompt_vcs() {
+	prompt_git || prompt_svn
+}
+
 if [[ $EUID -eq 0 ]]; then
 	PS1_USER="\[${BOLD}${RED}\]\u\[${RESET}\]"
 elif [[ $USER != $(logname) ]]; then
@@ -103,4 +131,4 @@ fi
 PS1_PATH="\[${BOLD}${BLUE}\]\w\[${RESET}\]"
 PS1_PROMPT="\n\\$ "
 
-PS1="${PS1_USER} at ${PS1_HOST} in ${PS1_PATH}\$(prompt_git)${PS1_PROMPT}"
+PS1="${PS1_USER} at ${PS1_HOST} in ${PS1_PATH}\$(prompt_vcs)${PS1_PROMPT}"
