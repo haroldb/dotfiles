@@ -92,7 +92,7 @@ function is_svn_repo() {
 
 function get_svn_branch() {
 	local branch_name
-	branch_name=$(svn info | sed -En 's/^Relative URL: \^(\/branches\/|\/tags\/|\/)(.*)$/\2/p') ||
+	branch_name=$(svn info | sed -En 's/^Relative URL: \^(\/branches\/|\/tags\/|\/)((feature\/|bugfix\/|[^/])[^/]*).*$/\2/p') ||
 	branch_name='(unknown)'
 
 	echo $branch_name
