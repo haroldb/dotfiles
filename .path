@@ -1,1 +1,1 @@
-export PATH="$HOME/bin:/usr/local/bin:$HOME/pear/bin:$PATH"
+export PATH="$HOME/bin:/usr/local/bin:vendor/bin:$PATH"
