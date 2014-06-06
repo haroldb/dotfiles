@@ -11,7 +11,6 @@ set wildmenu                            " Enhance command-line completion
 
 set cursorline                          " Highlight current line
 set scrolloff=5                         " Start scrolling 5 lines before the horizontal window border
-set mouse=a                             " Enable mouse in all modes
 set backspace=indent,eol,start          " Allow backspace in insert mode
 
 set autoindent                          " always set autoindenting on
@@ -25,6 +24,10 @@ set hlsearch                            " Highlight searches
 set incsearch                           " Highlight dynamically as pattern is typed
 
 set encoding=utf-8 nobomb               " Use UTF-8 without BOM
+
+if has('mouse')
+	set mouse=a                             " Enable mouse in all modes
+endif
 
 " Centralize backups, swapfiles and undo history
 set backupdir=~/.vim/backups
