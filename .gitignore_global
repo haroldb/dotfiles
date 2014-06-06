@@ -16,5 +16,6 @@ Thumbs.db
 # Editor config files
 *.sublime-workspace
 sftp-config.json
+.idea
 
 .ant-targets-build.xml
