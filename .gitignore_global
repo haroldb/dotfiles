@@ -17,5 +17,6 @@ Thumbs.db
 *.sublime-workspace
 sftp-config.json
 .idea
+atlassian-ide-plugin.xml
 
 .ant-targets-build.xml
