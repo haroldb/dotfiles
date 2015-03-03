@@ -19,6 +19,12 @@ brew install git
 brew install node
 brew install subversion
 
+# PHP
+brew tap homebrew/php
+
+brew install php56
+brew install boris
+
 # Cask
 brew install caskroom/cask/brew-cask
 brew tap caskroom/versions
@@ -27,6 +33,7 @@ brew tap caskroom/versions
 brew cask install --appdir=/Applications alfred
 brew cask install --appdir=/Applications clipmenu
 brew cask install --appdir=/Applications cord
+brew cask install --appdir=/Applications evernote
 brew cask install --appdir=/Applications firefox
 brew cask install --appdir=/Applications firefoxdeveloperedition
 brew cask install --appdir=/Applications gimp
@@ -38,8 +45,9 @@ brew cask install --appdir=/Applications iterm2
 brew cask install --appdir=/Applications java
 brew cask install --appdir=/Applications keepassx
 brew cask install --appdir=/Applications libreoffice
+brew cask install --appdir=/Applications macpass
 brew cask install --appdir=/Applications optimal-layout
-brew cask install --appdir=/Applications phpstorm
+#brew cask install --appdir=/Applications phpstorm
 brew cask install --appdir=/Applications radiant-player
 brew cask install --appdir=/Applications sequel-pro
 brew cask install --appdir=/Applications slack
