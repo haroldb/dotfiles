@@ -23,7 +23,9 @@ brew install subversion
 brew tap homebrew/php
 
 brew install php56
+brew install composer
 brew install boris
+brew install php-code-sniffer
 
 # Cask
 brew install caskroom/cask/brew-cask
