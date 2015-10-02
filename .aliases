@@ -43,7 +43,7 @@ alias sudo='sudo '
 command -v colordiff > /dev/null && alias diff="colordiff"
 
 # Get OS X Software Updates, update Homebrew, and its installed packages
-alias update='sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup'
+alias update='sudo softwareupdate -i -a; brew update; brew upgrade --all; brew cleanup'
 
 # IP addresses
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
