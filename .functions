@@ -179,10 +179,16 @@ function unquarantine() {
 # opens the given location
 function p() {
 	if [ $# -eq 0 ]; then
-		pstorm .;
+		LOCATION="$(git rev-parse --show-toplevel 2> /dev/null)"
+
+		if [ $? -ne 0 ]; then
+			LOCATION="."
+		fi
 	else
-		pstorm "$@";
-	fi;
+		LOCATION="$@"
+	fi
+
+	pstorm "${LOCATION}";
 }
 
 # `s` with no arguments opens the current directory in Sublime Text, otherwise
