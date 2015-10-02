@@ -18,6 +18,7 @@ brew install colordiff
 brew install git
 brew install node
 brew install subversion
+brew install zsh
 
 # PHP
 brew tap homebrew/php
