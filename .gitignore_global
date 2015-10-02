@@ -22,3 +22,5 @@ atlassian-ide-plugin.xml
 .ant-targets-build.xml
 
 .sass-cache
+
+.my.cnf
