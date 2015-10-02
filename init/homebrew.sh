@@ -68,6 +68,11 @@ brew cask install --appdir=/Applications xtrafinder
 # Tunnelblick must be installed directly in /Applications and will request to be moved at launch
 brew cask install tunnelblick
 
+# Fonts
+brew tap caskroom/fonts
+
+brew cask install font-source-code-pro
+
 # Quick look plugins
 brew cask install qlcolorcode
 brew cask install qlmarkdown
