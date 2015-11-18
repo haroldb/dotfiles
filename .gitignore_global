@@ -18,6 +18,7 @@ Thumbs.db
 sftp-config.json
 .idea
 atlassian-ide-plugin.xml
+.phpstorm.meta.php
 
 .ant-targets-build.xml
 
