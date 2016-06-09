@@ -15,9 +15,13 @@ brew install ack
 brew install ant
 brew install bash-completion
 brew install colordiff
+brew install docker
+brew install boot2docker
 brew install git
+brew install gtar
 brew install node
 brew install subversion
+brew install the_silver_searcher
 brew install zsh
 
 # PHP
@@ -25,8 +29,9 @@ brew tap homebrew/php
 
 brew install php56
 brew install composer
-brew install boris
+brew install psysh
 brew install php-code-sniffer
+brew install php56-xdebug
 
 # Cask
 brew install caskroom/cask/brew-cask
