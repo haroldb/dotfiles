@@ -15,8 +15,6 @@ brew install ack
 brew install ant
 brew install bash-completion
 brew install colordiff
-brew install docker
-brew install boot2docker
 brew install git
 brew install gtar
 brew install node
@@ -38,40 +36,41 @@ brew install caskroom/cask/brew-cask
 brew tap caskroom/versions
 
 # Apps
-brew cask install --appdir=/Applications alfred
-brew cask install --appdir=/Applications clipmenu
-brew cask install --appdir=/Applications cord
-brew cask install --appdir=/Applications evernote
-brew cask install --appdir=/Applications firefox
-brew cask install --appdir=/Applications firefoxdeveloperedition
-brew cask install --appdir=/Applications gimp
-brew cask install --appdir=/Applications google-chrome
-brew cask install --appdir=/Applications google-chrome-canary
-brew cask install --appdir=/Applications google-drive
-brew cask install --appdir=/Applications imageoptim
-brew cask install --appdir=/Applications iterm2
-brew cask install --appdir=/Applications java
-brew cask install --appdir=/Applications keepassx
-brew cask install --appdir=/Applications libreoffice
-brew cask install --appdir=/Applications macpass
-brew cask install --appdir=/Applications optimal-layout
-#brew cask install --appdir=/Applications phpstorm
-brew cask install --appdir=/Applications radiant-player
-brew cask install --appdir=/Applications sequel-pro
-brew cask install --appdir=/Applications slack
-brew cask install --appdir=/Applications sourcetree
-brew cask install --appdir=/Applications sublime-text3
-brew cask install --appdir=/Applications time-tracker
-brew cask install --appdir=/Applications todoist
-brew cask install --appdir=/Applications vagrant
-brew cask install --appdir=/Applications vagrant-manager
-brew cask install --appdir=/Applications validator-sac
-brew cask install --appdir=/Applications virtualbox
-brew cask install --appdir=/Applications vlc
-brew cask install --appdir=/Applications xtrafinder
-
-# Tunnelblick must be installed directly in /Applications and will request to be moved at launch
+brew cask install alfred
+brew cask install cord
+brew cask install cyberduck
+brew cask install docker
+brew cask install evernote
+brew cask install firefox
+brew cask install firefoxdeveloperedition
+brew cask install gimp
+brew cask install gitkraken
+brew cask install google-chrome
+brew cask install google-chrome-canary
+brew cask install google-drive
+brew cask install imageoptim
+brew cask install iterm2
+brew cask install java
+brew cask install keepassx
+brew cask install kitematic
+brew cask install libreoffice
+brew cask install macpass
+brew cask install optimal-layout
+brew cask install owasp-zap
+brew cask install radiant-player
+brew cask install sequel-pro
+brew cask install skitch
+brew cask install slack
+brew cask install sourcetree
+brew cask install sublime-text
+brew cask install time-tracker
 brew cask install tunnelblick
+brew cask install vagrant
+brew cask install vagrant-manager
+brew cask install validator-sac
+brew cask install virtualbox
+brew cask install vlc
+brew cask install xtrafinder
 
 # Fonts
 brew tap caskroom/fonts

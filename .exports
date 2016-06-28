@@ -20,6 +20,3 @@ export LANG="en_GB"
 
 # Always enable colored `grep` output
 export GREP_OPTIONS="--color=auto"
-
-# Set default Caskroom App directory
-export HOMEBREW_CASK_OPTS='--appdir=/Applications'
