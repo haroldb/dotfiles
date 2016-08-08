@@ -26,6 +26,8 @@ brew install zsh
 brew tap homebrew/php
 
 brew install php56
+brew install php70
+brew install brew-php-switcher
 brew install composer
 brew install psysh
 brew install php-code-sniffer
