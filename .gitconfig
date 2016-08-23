@@ -1,5 +1,6 @@
 [alias]
 	unstage = reset -q HEAD --
+	reset-to-remote = reset @{upstream}
 
 
 	# View abbreviated SHA, description, and history graph of the latest 20 commits
