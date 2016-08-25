@@ -12,7 +12,7 @@ alias -- -="cd -"
 # Shortcuts
 alias cdd="cd ~/Downloads"
 alias cdp="cd ~/Projects"
-alias g="git"
+alias gff="git flow feature"
 alias h="history"
 alias j="jobs"
 

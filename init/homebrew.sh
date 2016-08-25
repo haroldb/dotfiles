@@ -16,6 +16,7 @@ brew install ant
 brew install bash-completion
 brew install colordiff
 brew install git
+brew install git-flow=avh
 brew install gtar
 brew install node
 brew install subversion
