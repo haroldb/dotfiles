@@ -79,3 +79,7 @@
 	default = simple
 [pull]
 	ff = only
+
+[diff "composer.lock"]
+	textconv = git-diff-composer
+	cachetextconv = true

@@ -1,0 +1,34 @@
+#!/usr/bin/env php
+<?php
+# Usage: add following line to .gitattributes
+#   /composer.lock -merge diff=composer.lock
+# and register this diff engine in your git config
+# (I suggest setting this per project at .git/config)
+#   [diff "composer.lock"]
+#      textconv = bin/scripts/git-diff-composer.php
+#      cachetextconv = TRUE
+
+$lock = json_decode(file_get_contents($argv[1]));
+
+foreach (getPackageVersions($lock->packages) as $name => $version) {
+    echo "$name\n  $version\n";
+}
+
+foreach (getPackageVersions($lock->{'packages-dev'}) as $name => $version) {
+    echo "$name (dev)\n  $version\n";
+}
+
+function getPackageVersions($packages)
+{
+    $packageVersions = [];
+
+    foreach ($packages as $package) {
+        $version = str_pad($package->version, 10, ' ');
+        $ref = $package->source->reference;
+        $packageVersions[$package->name] = "$version $ref";
+    }
+
+    ksort($packageVersions);
+
+    return $packageVersions;
+}
