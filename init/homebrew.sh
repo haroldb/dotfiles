@@ -16,7 +16,6 @@ brew install ant
 brew install bash-completion
 brew install colordiff
 brew install git
-brew install git-flow=avh
 brew install gtar
 brew install node
 brew install subversion
@@ -54,12 +53,8 @@ brew cask install google-drive
 brew cask install imageoptim
 brew cask install iterm2
 brew cask install java
-brew cask install keepassx
 brew cask install kitematic
 brew cask install libreoffice
-brew cask install macpass
-brew cask install optimal-layout
-brew cask install owasp-zap
 brew cask install radiant-player
 brew cask install sequel-pro
 brew cask install skitch
@@ -70,7 +65,6 @@ brew cask install time-tracker
 brew cask install tunnelblick
 brew cask install vagrant
 brew cask install vagrant-manager
-brew cask install validator-sac
 brew cask install virtualbox
 brew cask install vlc
 brew cask install xtrafinder
